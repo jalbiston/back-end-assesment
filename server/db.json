@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "name": "Pikachu",
+      "type": "Electric",
+      "imageURL" : "https://www.giantbomb.com/a/uploads/scale_medium/0/6087/2437349-pikachu.png"
+    },
+    {
+      "id": 2,
+      "name": "Charmander",
+      "type": "Fire",
+      "imageURL" : "https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/d/d4/Charmander.gif"
+    },
+    {
+      "id": 3,
+      "name": "Squirtle",
+      "type": "Water",
+      "imageURL" : "https://i.pinimg.com/564x/1b/47/3a/1b473a97ded04ac7c5b85eaf2baa5441--pokemon-birthday-pokemon-images.jpg"
+    }
+  ]

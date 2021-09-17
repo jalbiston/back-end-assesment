@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a compliment</button>
+    <button id="fortuneButton">Get your fortune</button>
+    <h1>Buttons for days!</h1>
+    <button id="userButton">See some users on our site</button>
+    
+    <ul id= "people" class=""></ul>
+
+
+    <form>
+      <input 
+          type='text'
+          id="name"
+          placeholder="What's the pokemon's name"/>
+      <input 
+          type='text'
+          id="type"
+          placeholder='What type of Pokemon is it?'/>
+      <input 
+          type='text'
+          id="imageURL"
+          placeholder='Paste an image URL'/>
+      <button>add Pokemon</button>
+  </form>
+
+  <section id="pokemon-container"></section>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios
+          .get("http://localhost:4000/api/compliment/")
+          .then(function (response) {
+            const data = response.data;
+            alert(data);
+          });
+      };
+    </script>
+    <script>
+      document.getElementById("fortuneButton").onclick = function () {
+        axios
+          .get("http://localhost:4000/api/fortune/")
+          .then(function (response) {
+            const thing = response.data;
+            alert(thing);
+          });
+      };
+
+      document.getElementById("userButton").onclick = function () {
+  axios
+    .get("http://localhost:4000/api/users")
+    .then(function (response) {
+      const data = response.data;
+      document.getElementById("people").innerHTML = data
+        .map(function (person) {
+          return '<li class="row">' + person;
+        })
+        .join("");
+    })
+    .catch(function (err) {
+      document.getElementById("people").innerHTML =
+        '<li class="text-danger">' + err.message + "</li>";
+    });
+};
+
+    </script>
+
+  
+
+    <script src="main.js"></script>
+  </body>
+</html>
