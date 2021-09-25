@@ -42,13 +42,10 @@ app.get("/api/users", (req, res) => {
   res.status(200).send(friends);
 });
 
-const pokeController = require('./controller.js')
 
-app.get('/api/pokemon/', pokeController.getPokemon);
-app.post('/api/pokemon/', pokeController.createPokemon);
-app.delete('/api/pokemon/:id', pokeController.deletePokemon);
+const controller = require('./controller.js')
 
+app.get("/api/famouscougs", controller.getCoug)
+app.post("/api/famouscougs", controller.addCoug)
 
-
-
-app.listen(4000, () => console.log("Server running on 4000"));
+app.listen(3000, () => console.log("Server running on 3000"));

@@ -1,29 +1,26 @@
-const e = require('express');
-const pokemon = require('./db.json');
-let id = 4
+let cougars = [
+    "Tyler Allgeir",
+    "Jaren Hall",
+    "Baylor Romney",
+    "Gunner Romney",
+    "Zach Wilson",
+    "Taysom Hill",
+    "Kyle VanNoy"
+]
 
 
-
-module.exports ={
-    getPokemon: (req, res) =>{
-        res.status(200).send(pokemon)
+module.exports = {
+    getCoug: (req, res) => {
+        const randCoug = Math.floor(Math.random() * cougars.length)
+        const random = cougars[randCoug]
+        res.status(200).send(random)
+        
     },
-    createPokemon: (req, res) => {
-        let {name, type, imageURL}= req.body
-        let poke = {
-            id: id,
-            name,
-            type,
-            imageURL
-        }
-        id++
-        pokemon.push(poke)
-        res.status(200).send(pokemon)
-    },
-    deletePokemon: (req, res) => {
-        let {id}= req.params
-        let index = pokemon.findIndex(elem => elem.id === +id)
-    pokemon.splice(index, 1)
-    res.status(200).send(pokemon)
+    addCoug: (req, res) => {
+        let value = req.body
+        cougars.push(value.name)
+
+        res.status(200).send(cougars)
     }
+
 }
